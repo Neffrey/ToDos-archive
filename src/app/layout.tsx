@@ -31,7 +31,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
             <UseOnRender
               fallback={
                 <div className="absolute flex h-full w-full items-center justify-center bg-cyan-800 text-slate-50">
-                  <LoadingSpinner className="h-28 w-28" />
+                  <LoadingSpinner className="h-20 w-20" />
                 </div>
               }
             >
