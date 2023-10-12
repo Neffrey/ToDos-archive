@@ -2,16 +2,19 @@
 import "~/app/globals.css";
 
 // LIBRARIES
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 // COMPONENTS
+import Footer from "~/components/footer";
+import Header from "~/components/header";
+import UseOnRender from "~/components/hooks/useOnRender";
 import HtmlWrapper from "~/components/html-wrapper";
 import LightDarkProvider from "~/components/providers/light-dark-provider";
 import ThemeDrawer from "~/components/themeDrawer";
-import { Toaster } from "~/components/ui/toaster";
-import UseOnRender from "~/components/hooks/useOnRender";
 import LoadingSpinner from "~/components/ui/loading-spinner";
+import { Toaster } from "~/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Neffrey Starter",
@@ -20,23 +23,27 @@ export const metadata: Metadata = {
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
   return (
-    <HtmlWrapper>
-      <body>
-        <UseOnRender
-          fallback={
-            <div className="absolute flex h-full w-full items-center justify-center bg-cyan-800 text-slate-50">
-              <LoadingSpinner className="h-28 w-28" />
-            </div>
-          }
-        >
+    <ClerkProvider>
+      <HtmlWrapper>
+        <body>
+          <Header />
           <LightDarkProvider>
-            <ThemeDrawer />
-            {children}
-            <Toaster />
+            <UseOnRender
+              fallback={
+                <div className="absolute flex h-full w-full items-center justify-center bg-cyan-800 text-slate-50">
+                  <LoadingSpinner className="h-28 w-28" />
+                </div>
+              }
+            >
+              <ThemeDrawer />
+              {children}
+              <Toaster />
+            </UseOnRender>
           </LightDarkProvider>
-        </UseOnRender>
-      </body>
-    </HtmlWrapper>
+          <Footer />
+        </body>
+      </HtmlWrapper>
+    </ClerkProvider>
   );
 };
 

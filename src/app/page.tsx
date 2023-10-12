@@ -2,27 +2,23 @@
 import Link from "next/link";
 
 // COMPONENTS
-import Header from "~/components/header";
-import { Button } from "~/components/ui/button";
-import ChevronDown from "~/components/svgs/ChevronDown";
-import LdThemeSwitch from "~/components/ld-theme-switch";
-import ColorThemeSwitch from "~/components/color-theme-switch";
 import CompTests from "~/components/component-tests/all-comp-tests";
+import ChevronDown from "~/components/svgs/ChevronDown";
+import { Button } from "~/components/ui/button";
 
 const Home = () => {
   return (
     <main className="flex min-h-screen w-full flex-col">
-      <Header />
       <div
         // HERO ROW
         className="flex w-full flex-col items-center justify-center gap-12 bg-gradient-to-br from-secondary to-secondary/50 px-4 py-16"
       >
         <div className="flex flex-col gap-5">
           <h1 className="w-full text-center text-5xl font-extrabold tracking-wider text-secondary-foreground sm:text-[5rem]">
-            {`Neffrey's starter`}
+            Neffs ToDos
           </h1>
           <h2 className="w-full text-center text-xl tracking-wider text-secondary-foreground">
-            Just a quick little site with theming
+            Just a lil todo app
           </h2>
         </div>
         <div className="flex items-center justify-center gap-5">
